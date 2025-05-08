@@ -33,7 +33,12 @@ SemR-p was integrated into the existing `SemanticMatchingMetric` class alongside
 
 `pip install torch==1.13.1 torchvision torchaudio`
 
+3.  **Added Data Retrieval Utility Script:** *(New Point)*
+    *   Included a new script `doc_retriever.py` that provides a function (`get_qualitative_data`) to easily load the source text, target keyphrases, and predicted keyphrases for a specific document index from the model_outputs folder.
+    *   This utility facilitates qualitative analysis and inspection of specific examples.
 
+
+-----------------------------
 
 # KPEval 🛠️
 
