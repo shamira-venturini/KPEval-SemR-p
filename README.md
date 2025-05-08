@@ -6,6 +6,7 @@
 **Semantic R-precision**
 
 Semantic R-Precision (SemR-p) is a novel metric designed to jointly evaluate semantic relevance and ranking quality of reference agreement in keyphrase prediction. It builds upon the R-Precision framework by incorporating embedding-based semantic similarity for non-exact matches. This work aims to provide a more holistic assessment of keyphrase quality. 
+SemR-p is output automatically with the other semantic metrics when using `semantic_matching` as metric_id in the evaluation function.
 
 The implementation of SemR-p in this fork is intended for contribution back to the main KPEval toolkit. If you use SemR-p, please cite our [paper](https://www.researchgate.net/publication/391552955_Meaning_in_Order_Order_in_Meaning_Semantic_R-precision_for_Keyphrase_Evaluation}):
 
@@ -33,7 +34,7 @@ SemR-p was integrated into the existing `SemanticMatchingMetric` class alongside
 
 `pip install torch==1.13.1 torchvision torchaudio`
 
-3.  **Added Data Retrieval Utility Script:** *(New Point)*
+3.  **Added Data Retrieval Utility Script:**
     *   Included a new script `doc_retriever.py` that provides a function (`get_qualitative_data`) to easily load the source text, target keyphrases, and predicted keyphrases for a specific document index from the model_outputs folder.
     *   This utility facilitates qualitative analysis and inspection of specific examples.
 
