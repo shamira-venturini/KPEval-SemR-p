@@ -16,13 +16,13 @@ def get_qualitative_data(base_dir, dataset, model, doc_index):
         dict: A dictionary containing 'source', 'target', and 'predictions'
               for the specified document, or None if not found or an error occurs.
     """
-    # Construct the file path based on the provided structure
+    # Construct the file path
     file_name = f"{dataset}_hypotheses_linked.json"
     file_path = os.path.join(base_dir, dataset, model, file_name)
 
     print(f"Attempting to read document index {doc_index} from: {file_path}")
 
-    # Check if the file exists before trying to open it
+    # Check if the file exists
     if not os.path.exists(file_path):
         print(f"Error: File not found at {file_path}")
         return None
@@ -41,7 +41,6 @@ def get_qualitative_data(base_dir, dataset, model, doc_index):
                     break # Stop reading once the line is found
 
     except FileNotFoundError:
-        # This case is already handled by os.path.exists, but good practice
         print(f"Error: File not found during reading: {file_path}")
         return None
     except json.JSONDecodeError:
@@ -59,11 +58,10 @@ def get_qualitative_data(base_dir, dataset, model, doc_index):
     # Check if keys exist in the loaded data
     if not all(key in result_data for key in ['source', 'target', 'predictions']):
          print(f"Warning: Retrieved data for index {doc_index} might be missing expected keys ('source', 'target', 'predictions').")
-         # Return data anyway, let the caller handle missing keys if needed
 
     return result_data
 
-# --- Example Usage ---
+# ---  Usage ---
 
 project_root = "."
 base_output_dir = os.path.join(project_root, "model_outputs")
